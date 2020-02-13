@@ -1,0 +1,4 @@
+The ood_tel folder contains open source images of TELs and other military hardware gathered using Advanced Google Image Search
+under the option of Free to Use and Distribute. The purpose of this dataset is to test transfer learning with CNN under data
+starved regimes.  To use the folder with uploaded models, use the testnetwork.py module and place the ood_tel folder inside a
+data folder in your working directory e.g. /workspace/data/ood_tel...
