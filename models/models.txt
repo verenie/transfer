@@ -1,0 +1,3 @@
+This folder contains models trained on the operational TEL dataset by fine-tuning models that were pre-trained on the full
+ImageNet dataset.  To test these models on your own datasets follow the format of the data/ood_tel folder and specify it in the
+testnetwork.py module.
