@@ -15,7 +15,6 @@ import csv
 import metrx as mx
 
 
-
 # set the data directory for training models
 # this is where we select which fold to train on
 DATA_DIR = 'data/tel'
