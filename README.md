@@ -1,6 +1,7 @@
 # transfer
 Convolutional Neural Network architecture transfer learning in data starved regimes with model fine-tuning and convolutional feature extraction.
 
+# train custom models in data starved environment
 To reproduce with a custom dataset follow directions below:
 
 1. Install PyTorch
@@ -45,3 +46,28 @@ FREEZE = True
     torch.save(model_conv,'models/yourmodelname.pt')
 ```
 10. Run the file to retrain/finetune a new model based on your data.  NOTE: you may wish to increase the number of epochs depending on the size of your dataset.  The model training and selection process will iterate for X number of epochs and return the best performing model selected either for ACCURACY or SENSITIVITY for the class selected.
+
+# test pretrained TEL models
+Test experimental models trained on the original TEL dataset against the OOD dataset or your own images.
+
+1. Select the testnetwork.py module.
+2. Specify the data directory that follows conventions described above or download the OOD dataset and unzip in your working directory.
+3. Update the tranformations to 299 for the Inception architecture or 224 for other architectures as follows:
+```python
+data_transforms = {
+    'test': transforms.Compose([
+        transforms.Resize(299),
+        transforms.CenterCrop(299),
+        #transformsx.GausNoise(10),
+        transforms.ToTensor(),
+        transforms.Normalize(IMAGE_NET_MEAN, IMAGE_NET_STD)
+    ])
+}
+```
+4. Specify the model location and name:
+```python
+MODEL_NAME = 'models/inception3TEL.pt'
+```
+5. Save and run the file.
+
+
